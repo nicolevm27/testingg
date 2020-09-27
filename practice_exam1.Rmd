@@ -1,0 +1,434 @@
+#Practice for the exam 1
+
+#output
+
+print("hello")
+cat("hello\n")
+cat("This are the two options:\n
+    1.-Option A\n 
+    2.-Option B")
+
+#input
+name=readline(prompt="What is your name?:")
+colour=scan(,what=character(),2)
+age=as.integer(readline(prompt="How old are you?: "))
+
+#Ejercicios diapositiva 1
+a=5
+b=10
+c=a+b
+paste("the result is",c)
+
+a=5
+b=10
+c=a+b
+cat("the result is",c)
+
+data<-function()
+{print("Please, let me know the next data:")
+  name=readline(prompt="Insert your name: ")
+  age=as.integer(readline(prompt="Insert your age: "))
+  email=readline(prompt="Insert your email: ")
+cat("The user is",name,"He is",age,"years old","and his email is",email)}
+
+#Vectors
+a=c(3,2,5,6,7)
+b=c(1,8,4,3,2,8)
+#to concatenate
+d=c(a,b)
+#to select 
+a[3]
+a[c(2,5)]
+#to eliminate
+a[-2]
+a[-c(2,4)]
+#functions
+sum(a)
+mean(a)
+family=c("Ximena","Pablo","Nicole","Pablo")
+names(family)=c("mom","dad","daughter","son")
+
+#Conditional structure if()
+grade=5
+{if(grade<5)
+  print("fail")
+  else
+    print("pass")}
+
+grades<-function()
+{G=c(6,5,4,8,7,8,5,6)
+for(i in 1:length(G))
+{if(G[i]<5)
+  print("fail")
+else
+if((G[i]>=5) & (G[i]<7))
+  print("pass")
+else
+if(G[i]>=7)
+  print("Good")}
+}
+
+#loop for()
+a=c(4,2,5,6,7,3)
+for(i in 1:length(a))
+print(i)#program will print the positions 
+
+a=c(3,5,3,2,8,6)
+for(i in 1:length(a))
+print(a[i]) #program will print the element 
+
+#functions
+myfirstfunction<-function()
+{a=4
+b=5
+c=a+b
+print(c)}
+
+myfirstfunction<-function()
+{a=4
+b=5
+c=a+b
+return(c)}
+
+#excercise-base1
+A=c(2,4,3,5,7,6)
+A[2]
+x=A[2]
+y=A[4]
+p=A[c(2,5)]
+
+A=c(2,4,3,5,7,6)
+for(i in length(A):1)
+  print(A[i])
+
+A=c(2,4,3,5,7,6)
+for(i in length(A):1)
+  print(i)
+
+D=5
+A[2]=D
+A=c(A,D)
+
+#excercise-base2
+A=c(2,4,3,5,7,6)
+B=c(6,4,2,3,5,3)
+F=c(A,B)
+D=c(B,A)
+F[length(F)]=max(A)
+F[1]=min(A)
+F[-c(3,5)]
+F[-length(F)]
+
+#excercise-vectors
+ex1<-function()
+  {A=c(2,4,5,7)
+  B=c()
+  for(i in 1:length(A))
+    if(i==1)
+      B=c(B,A[i])
+  else
+    B=c(B,A[i]+A[i-1])
+  print(B)}
+
+
+ex2<-function()
+{A=c(2,4,5,7)
+B=c()
+for(i in 1:length(A))
+  if(i==length(A))
+    B=c(B,A[i])
+else
+  B=c(B,A[i]+A[i+1])
+print(B)}
+
+ex3<-function()
+{a=c(2,4,5,7)
+even=c()
+odd=c()
+for(i in 1:length(a))
+{if((a[i]%%2)==0)
+even=c(even,a[i])
+else
+if((a[i]%%2)==1)
+odd=c(odd,a[i])
+}
+print(even)
+print(odd)
+}
+
+ex4<-function()
+repeat {
+  grade=as.integer(readline(prompt="Please enter a grade: "))
+  if(grade<5)
+    print("fail")
+  else
+    print("pass")
+  answer=readline(prompt="Do you want to write another grade?: ")
+  if(answer=="no")
+    break
+}
+
+ex5<-function()
+  repeat
+{grade=as.integer(readline(prompt="Grade: "))
+if(grade<5)
+  print("fail")
+else
+  if((grade>=5) & (grade<7))
+    print("pass")
+else
+  if((grade>=7) & (grade<8.5))
+    print("good")
+else
+  print("with honors")
+
+answer=readline(prompt="Do you want to write another grade?: ")
+if(answer=="no")
+  break
+}
+
+ex6_1<-function()
+{print("Please, enter 5 grades:")
+  grade1=as.integer(readline(prompt="Grade 1: "))
+  grade2=as.integer(readline(prompt="Grade 2: "))
+  grade3=as.integer(readline(prompt="Grade 3: "))
+  grade4=as.integer(readline(prompt="Grade 4: "))
+  grade5=as.integer(readline(prompt="Grade 5: "))
+  a=c(grade1,grade2,grade3,grade4,grade5)
+  for(i in 1:length(a))
+    if(a[i]<5)
+      print("fail")
+  else
+    print("pass")}
+
+ex7<-function()
+{a=c(4,7,2,9,3,5,7,9.5,3,8)
+pass=0
+fail=0
+for(i in 1:length(a))
+  {if(a[i]<5)
+    fail=fail+1
+else
+  if(a[i]>=5)
+    pass=pass+1
+}
+cat("pass",pass," \n")
+cat("fail",fail)
+}
+
+ex7_a<-function()
+{a=c(4,7,2,9,3,5,7,9.5,3,8)
+fail=0
+pass=0
+good=0
+with_honors=0
+for(i in 1:length(a))
+  {if(a[i]<5)
+    fail=fail+1
+else
+  if((a[i]>=5) & (a[i]<=7))
+    pass=pass+1
+else
+  if((a[i]>7) & (a[i]<=8.5))
+    good=good+1
+else
+  with_honors=with_honors+1 }
+cat("fail",fail,"\n")
+cat("pass",pass,"\n")
+cat("good",good,"\n")
+cat("with_honors",with_honors,"\n")
+}
+
+#loop while()
+i=0
+while(i<5)
+{i=i+1
+print(i)}
+ 
+x=1
+while(x<10)
+{print(x)
+  x=x+1}
+
+x=1
+while(x<10)
+{ x=x+1
+print(x)}
+
+storage=c()
+x=1
+while(x<10)
+{storage=c(storage,x)
+x=x+1}
+  
+#loop repeat()
+i=0
+repeat
+{i=i+1
+print(i)
+if(i>=5)
+  break}
+
+#matrix
+matrix("b",2,2)
+
+board=matrix("b",2,2)
+
+matrix(1:10,2,5)
+
+matrix(1:10,2,5,byrow=T)
+
+eya=matrix(c(48,49,20,15,1.71,1.60,1.64,1.78),4,2)
+rownames(eya)=c("Papá","Mamá","Hija","Hijo")
+colnames(eya)=c("Edad","Altura")
+
+#exercise base-loop
+#ex1
+#for
+ex1<-function()
+  {A=c(2,1,4,3,5)
+  for(i in 1:length(A))
+    print(A[i])
+}
+ex1()
+
+#while
+ex1.1<-function()
+{ A=c(2,1,4,3,5)
+i=1
+while(i<=length(A))
+{print(A[i])
+  i=i+1}
+}
+ex1.1()
+
+#repeat
+ex1.2<-function()
+{ A=c(2,1,4,3,5)
+i=1
+repeat
+{print(A[i])
+    i=i+1
+    if(i>length(A))
+      break}}
+ex1.2()
+
+#ex2
+ex2-function()
+  {A=c(2,1,4,3,5)
+i=length(A)
+repeat
+{print(A[i])
+  i=i-1
+  if(i<1)
+    break}
+}
+
+ex2.1<-function()
+  {A=c(2,1,4,3,5)
+i=length(A)
+while(i>=1)
+{print(A[i])
+  i=i-1}
+}
+
+#ex3
+ex3<-function()
+  { A=c(2,1,4,3,5,2,4,3,1,4,2,2,3)
+B=0
+number=as.integer(readline(prompt="Please, insert a number: "))
+for(i in 1:length(A))
+  {if(number==A[i])
+    B=B+1
+}
+print(B)
+}
+
+#ex4
+ex4<-function()
+  {A=c(2,1,4,3,5)
+  num=as.integer(readline(prompt="Please, enter a number: "))
+  while((num<=max(A)) & (num>=min(A)))
+    num="*"
+    print(num)
+}
+
+elements_while<-function()
+{
+  A=c(2,1,4,3,5,2,4,3,1,4,2,2,3)
+  num=scan(,,1)
+  cont=0
+  i=1
+  while(i<=length(A))
+  {
+    if(num==A[i])
+      A[i]="*"
+    i=i+1
+  }
+  print(A)
+}
+
+#Parcial 2018-2019
+#ex1
+CheckDataBadPosition<-function()
+{A=c(2,6,1,7,3,5)
+even=c()
+odd=c()
+i=1
+while(i<=length(A))
+    {if((A[i]%%2)==0 & (i%%2)==1)
+      even=c(even,A[i])
+else
+  if((A[i]%%2)==1 && (i%%2)==0)
+    odd=c(odd,A[i])
+  i=i+1
+
+}
+cat("Even: ",even,"\n")
+cat("Odd: ",odd)
+}
+
+#Ex2
+CalculateMeanGrade<-function()
+{grade=matrix(c(4.5,7,6,7,9,5,8,3,2,1,4,7),nrow=6,ncol=2,byrow=T)
+colnames(grade)=c("Ex1","Ex2")
+failEx1=0
+failEx2=0
+failEx1or2=0
+failboth=0
+meangrade=c()
+print(grade)
+for(i in 1:nrow(grade)) 
+  {if(grade[i,1]<5)
+    failEx1=failEx1+1
+  
+    if(grade[i,2]<5)
+      failEx2=failEx2+1
+    
+    if((grade[i,1]<5) & (grade[i,2]<5))
+      failboth=failboth+1
+    
+    if((grade[i,1]<5) | (grade[i,2]<5))
+      failEx1or2=failEx1or2+1
+}
+{mean1=mean(grade[1,])
+      mean2=mean(grade[2,])
+      mean3=mean(grade[3,])
+      mean4=mean(grade[4,])
+      mean5=mean(grade[5,])
+      mean6=mean(grade[6,])
+      meangrade=c(mean1,mean2,mean3,mean4,mean5,mean6)}
+cat("Fail exam 1: ",failEx1,"\n")
+cat("Fail exam 2: ",failEx2,"\n")
+cat("Fail both exams: ",failboth,"\n")
+cat("Fail Ex1 or Ex2: ",failEx1or2,"\n")
+cat("Mean grade: ",meangrade)
+
+}
+
+
+
+
+
+
+

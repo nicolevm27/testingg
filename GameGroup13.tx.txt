@@ -1,0 +1,93 @@
+﻿# Program shows menu and allows user to choose an option
+menu <- function(){
+  cat("Welcome to noughts and crosses\n
+1: Configuration\n
+2: Play\n
+3: Record\n
+4: Game over\n")
+  choice = as.integer(readline(prompt = "Which option would you like to choose? "))
+  while(choice>4 || choice<1){
+    print("Please, enter a valid option")
+    choice = as.integer(readline(prompt = "Which option would you like to choose? ")) 
+  }
+  return(choice)
+}
+
+
+# Defining of the board
+board = matrix("b",10,10)
+
+
+# Option 2
+# Function that validates a user's coordinates and returns them in a vector format
+coordinates <- function(){
+  row = as.integer(readline(prompt="Please, insert row: "))
+  while(row<1 || row>10){
+    row = as.integer(readline(prompt="The row is not correct. Please enter another row: "))
+  }
+  col = as.integer(readline(prompt="Please, insert column: "))
+  while(col<1 || col>10){
+    col = as.integer(readline(prompt="The column is not correct. Please enter another column: "))
+  }
+  coordinates = c(row,col)
+  return(coordinates)
+}
+
+
+# For storing each user's coordinates in a variable
+user1 <- function(){
+  user1_coordinates = coordinates()
+  return(user1_coordinates)
+}
+user2 <- function(){
+  user2_coordinates = coordinates()
+  return(user2_coordinates)
+}
+
+
+
+
+# Function to check user1's coordinates on the board
+new_board <- function(user1_coordinates,user2_coordinates){
+    # If user1's coordinates on the board is empty, replace it with appropriate symbol
+    if(board[user1_coordinates[1],user1_coordinates[2]] == "b"){
+      board[user1_coordinates[1],user1_coordinates[2]] <- "O"
+    }
+    # Not empty, keep prompting user1
+    else{
+      repeat{
+        cat("User 1, the square is not empty, enter other coordinates.")
+        user1_coordinates <- user1()
+        if(board[user1_coordinates[1],user1_coordinates[2]] == "b"){
+          board[user1_coordinates[1],user1_coordinates[2]] <- "O"
+          break
+        }
+      }
+    }
+      # If user2's coordinates on the board is empty, replace it with appropriate symbol
+    if(board[user2_coordinates[1],user2_coordinates[2]] == "b"){
+      board[user2_coordinates[1],user2_coordinates[2]] <- "X"
+    }
+    # Not empty, keep prompting user2
+    else{
+      repeat{
+        cat("User 2, the square is not empty, enter other coordinates.")
+        user2_coordinates <- user2()
+        if(board[user2_coordinates[1],user2_coordinates[2]] == "b"){
+          board[user2_coordinates[1],user2_coordinates[2]] <- "X"
+          break
+        }
+      }
+    }
+  
+  return(board)
+}
+
+
+if(menu()==2){
+  user1_coordinates = user1()
+  user2_coordinates = user2()
+  # Re-assign board to the new returned board from the function
+  board = new_board(user1_coordinates,user2_coordinates)
+  board
+}

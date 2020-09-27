@@ -1,0 +1,165 @@
+#ejercicio_clase
+askData<-function(tablero)
+{
+  print("I'm in askData")
+  tablero[1,2]="C"
+  print(tablero)
+  return(tablero)
+}
+option1<-function( )
+{
+  tablero<-matrix(c("b"),2,2)	
+  print(tablero)
+  print("I'm in option1")
+  tablero[1,1]="A"	
+  print(tablero)
+  print("Call askData")
+  tablero=askData(tablero)
+  print("Return of calling askData")
+  print(tablero)
+}
+menu<-function()
+{
+  print("I'm in menu")
+  option1()
+  print("The program is after option1. It's the last one.")
+}
+
+#example2
+askData<-function(tablero)
+{
+  print("I'm in askData")
+  tablero[1,2]="C"
+  print(tablero)
+  return(tablero)
+}
+option1<-function( )
+{
+  tablero<-matrix(c("b"),2,2)	
+  print(tablero)
+  print("I'm in option1")
+  tablero[1,1]="A"	
+  print(tablero)
+  print("Call askData")
+  tablero=askData(tablero)
+  print("Return of calling askData")
+  print(tablero)
+}
+menu<-function()
+{
+  print("I'm in menu")
+  option1()
+  print("The program is after option1. It's the last one.")
+}
+#example return
+check <- function(x) {
+  if (x > 0) {
+    result <- "Positive"
+  }
+  else if (x < 0) {
+    result <- "Negative"
+  }
+  else {
+    result <- "Zero"
+  }
+  return(result)
+}
+
+#example3
+askData<-function(tablero)
+{
+  print("2.- IN askData")
+  tablero[1,2]="C"
+  print(tablero)
+  a=5
+  print(a)
+  return(list(board=tablero,valueA=a))
+  
+}
+option2<-function( )
+{
+  tablero=matrix("b",2,2)	
+  print("I'm in option2")
+  tablero[1,1]="A"
+  print(tablero)
+  list_Data=askData(tablero)
+  print("In option1, after calling askData")
+  tablero=list_Data$board
+  print(tablero)
+  a=list_Data$valueA
+  print(a)
+}
+menu<-function()
+{
+  print("in menu")
+  option2()
+}
+#Excercise 1 exam
+ex1<-function()
+{A=c(2,6,1,7,3,5)
+B=odd=c()
+C=even=c()
+  for(i in 1:length(A))
+  {if((i%%2)==1)
+  {
+    if((A[i]%%2)==0)
+    even=c(even,A[i])
+  }
+    else
+      if((A[i]%%2)==1)
+        odd=c(odd,A[i])
+  }
+print(even)
+print(odd)
+}
+
+#exercise 2 exam
+CalculateMeanGrade<-function()
+  {grade=matrix(c(4.5,6,9,8,2,4,7,7,5,3,1,7),nrow=6,ncol=2)
+  colnames(grade)=c("Ex1","Ex2")
+  exam1=0
+  exam2=0
+  exam3=0
+  exam4=0
+  meangrade=c()
+  for( i in 1:nrow(grade))
+    {if(grade[i,1]<5)
+      exam1=exam1+1
+    if(grade[i,2]<5)
+      exam2=exam2+1
+    if((grade[i,1]<5) | (grade[i,2]<5))
+exam3=exam3+1
+if((grade[i,1]<5) & (grade[i,2]<5))
+  exam4=exam4+1
+    
+    meangrade=c(meangrade,((grade[i,1]+grade[i,2]/2)))
+  }
+  print(grade)
+  print(exam1)
+  print(exam2)
+  print(exam3)
+  print(exam4)
+  print(meangrade)
+}
+
+#excersice 3 exam (está mal)
+reversevector<-
+  {vector1=c(2,6,1,4,5,7)
+  vector2=c(7,5,4,1,6,2)
+  i=1
+  b=length(vector2)
+  while(i<=length(vector1)) & (b>=1) & (same=TRUE)
+  {if(vector1[i]==vector2[b])
+    i=i+1
+    b=b-1
+    same=TRUE
+  }
+  else
+    same=FALSE
+  }
+if(same==TRUE)
+  print("vectors are the same")
+else
+  print("vector are different")}
+  
+  

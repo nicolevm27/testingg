@@ -1,0 +1,178 @@
+
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R es un software libre y viene sin GARANTIA ALGUNA.
+Usted puede redistribuirlo bajo ciertas circunstancias.
+Escriba 'license()' o 'licence()' para detalles de distribucion.
+
+R es un proyecto colaborativo con muchos contribuyentes.
+Escriba 'contributors()' para obtener más información y
+'citation()' para saber cómo citar R o paquetes de R en publicaciones.
+
+Escriba 'demo()' para demostraciones, 'help()' para el sistema on-line de ayuda,
+o 'help.start()' para abrir el sistema de ayuda HTML con su navegador.
+Escriba 'q()' para salir de R.
+
+[Previously saved workspace restored]
+
+> matrix(1:6,nrow=2)
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> matrix(1:6,nrow=3)
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+> matrix(1:6,nrow=2,byrow=T)
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+> x=matrix(1:6,nrow=3)
+> x
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+> x[1,]
+[1] 1 4
+> x[3,1]
+[1] 3
+> x[,2]
+[1] 4 5 6
+> x=matrix(1:6,nrow=3)
+> x
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+> rbind(x,c(10,10,10))
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+[4,]   10   10
+Warning message:
+In rbind(x, c(10, 10, 10)) :
+  number of columns of result is not a multiple of vector length (arg 2)
+> cbind(x,c(10,10,10))
+     [,1] [,2] [,3]
+[1,]    1    4   10
+[2,]    2    5   10
+[3,]    3    6   10
+> rbind(x,c(20,20))
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+[4,]   20   20
+> mat=matrix(c(20,65,1.74,22,70,1.80,19,68,1.70),nrow=3,byrow=T)
+> mat
+     [,1] [,2] [,3]
+[1,]   20   65 1.74
+[2,]   22   70 1.80
+[3,]   19   68 1.70
+> colnames(mat)=c("edad","peso","altura")
+> #name columns
+> mat
+     edad peso altura
+[1,]   20   65   1.74
+[2,]   22   70   1.80
+[3,]   19   68   1.70
+> colnames(mat)=c("edad","peso","altura")
+> mat
+     edad peso altura
+[1,]   20   65   1.74
+[2,]   22   70   1.80
+[3,]   19   68   1.70
+> rownames(mat)=c("juan","maria","ana")
+> mat
+      edad peso altura
+juan    20   65   1.74
+maria   22   70   1.80
+ana     19   68   1.70
+> mode(mat)
+[1] "numeric"
+> dimnames(mat)
+[[1]]
+[1] "juan"  "maria" "ana"  
+
+[[2]]
+[1] "edad"   "peso"   "altura"
+
+> x=matrix(1:6,nrow=3)
+> x
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+> x=cbind(x,c(10,10,10))
+> x=crow(x,c(20,20,20))
+Error in crow(x, c(20, 20, 20)) : no se pudo encontrar la función "crow"
+> x=rbind(x,c(20,20,20))
+> x
+     [,1] [,2] [,3]
+[1,]    1    4   10
+[2,]    2    5   10
+[3,]    3    6   10
+[4,]   20   20   20
+> rownames(mat)
+[1] "juan"  "maria" "ana"  
+> colnames(mat)
+[1] "edad"   "peso"   "altura"
+> is.matriz(x)
+Error in is.matriz(x) : no se pudo encontrar la función "is.matriz"
+> is.matrix(x)
+[1] TRUE
+> is.matrix(mat)
+[1] TRUE
+> mat[,peso]
+Error: objeto 'peso' no encontrado
+> mat[,"peso"]
+ juan maria   ana 
+   65    70    68 
+> mat[,c("edad","altura")]
+      edad altura
+juan    20   1.74
+maria   22   1.80
+ana     19   1.70
+> apply(mat,2,mean)
+     edad      peso    altura 
+20.333333 67.666667  1.746667 
+> apply(mat,1,mean)
+    juan    maria      ana 
+28.91333 31.26667 29.56667 
+> i=0
+> while(i<5)
++ {i=i+1
++ print(i)}
+[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+> i=0
+> i
+[1] 0
+> i=0
+> repeat
++ {i=i+1
++ print(i)
++ if(i>=5)
++ break}
+[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+> ej1<-function()
++ {A=c(2,4,5,7)
++ for(i in 1:length(A))
++ q()
++ q()
++ q()
++ q()
++ q()
++ if(i==1)

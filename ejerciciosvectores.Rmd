@@ -1,0 +1,55 @@
+ex2<-function()
+  {A=c(2,4,5,7)
+B=c()
+for(i in 1:length(A))
+{if (i==length(A))
+{B[i]=A[i]
+}
+else 
+{B[i]=A[i]+A[i+1]}
+    print(B)
+}
+}
+
+{A=c(2,4,5,7)
+B=c()
+i=1
+repeat
+{ if(i==length(A))
+  B[i]=A[i]
+else
+  B[i]=A[i]+A[i+1]
+}
+i=i+1
+if(i>length(A))
+  break
+}
+
+ex3<-function()
+  {A=c(2,4,5,7)
+  even=c()
+  odd=c()
+  for(i in 1:length(A))
+    {if(A[i]%%2==0)
+      even=c(even,A[i])
+    else
+      odd=c(odd,A[i])
+  }
+  print(even)
+  print(odd)
+}
+
+ex7<-function()
+  {grade=c(4,7,2,9,3,5,7,9.5,3,8)
+  fail=0
+  pass=0
+  for(i in 1:length(grade))
+  {if(grade[i]<5)
+  fail=fail+1}
+  else
+  {
+  pass=pass+1
+  }
+}
+
+  
